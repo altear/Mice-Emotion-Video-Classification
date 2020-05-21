@@ -1,14 +1,5 @@
 # Detecting Stress in Mice from Video Data
 
-<style>
-    td:first-child {
-        text-align: right;
-        width: 100px;
-        font-weight: bold;
-    }
-</style>
-
-
 <table>
     <tr>
         <td> Course: </td>
@@ -36,9 +27,4 @@
 The goal of this project is to create machine learning model that
 is capable of accurately classifying mice that are
 experiencing stress. 
-
-The input data is video footage of
-individual mice. The output data is a binary class
-label and confidence score that reveals whether or not
-the mouse is experiencing stress.
 
