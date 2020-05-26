@@ -10,6 +10,7 @@ WORKDIR /temp
 # Install Anaconda
 RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda.sh
 RUN bash ~/miniconda.sh -b -p $HOME/miniconda
+ENV PATH="${HOME}/miniconda/bin:${PATH}"
 
 # Install Jupyter
 RUN conda install -c conda-forge jupyterlab
