@@ -33,7 +33,7 @@ sudo docker run \
     -it --gpus all \
     -p 8888:8888 \
     mouse-emotion \
-    jupyter notebook \
+    jupyter lab \
         --ip 0.0.0.0 --port 8888 --no-browser --allow-root \
         --NotebookApp.token="yourtoken" \
         --NotebookApp.allow_origin=* \
