@@ -1,9 +1,9 @@
 FROM tensorflow/tensorflow:latest-gpu
 
-# Install git
+# Install tools
 RUN apt-get update && \
     apt-get upgrade -y && \
-    apt-get install -y git
+    apt-get install -y git wget
 
 WORKDIR /temp
 
