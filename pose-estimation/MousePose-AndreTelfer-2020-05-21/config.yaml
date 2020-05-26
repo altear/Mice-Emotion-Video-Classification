@@ -8,9 +8,9 @@ project_path: C:\Users\Owner\Documents\repos\COMP4905\pose-estimation\MousePose-
 
 # Annotation data set configuration (and individual video cropping parameters)
 video_sets:
-  ..\videos\Rat 2 LPS 1.MP4:
+  ./videos/Rat 2 LPS 1.MP4:
     crop: 0, 2704, 0, 1520
-  ..\videos\Rat 4 Control 1.MP4:
+  ./videos/Rat 4 Control 1.MP4:
     crop: 0, 2704, 0, 1520
 bodyparts:
 - left_ear
