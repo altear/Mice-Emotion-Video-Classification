@@ -19,16 +19,19 @@ Assumes CUDA, cuDNN are already installed
    Currently `docker pull tensorflow/tensorflow:latest-gpu-jupyter`
 
 ## Launching
+Use the following command. Make modifications to volume, notebookdir, and token depending on system.
 
 ```
 sudo docker run \
+    -v /storage:/workspace \
     -it --gpus all \
     -p 8888:8888 \
     tensorflow/tensorflow:latest-gpu-jupyter \
     jupyter notebook \
         --ip 0.0.0.0 --port 8888 --no-browser --allow-root \
         --NotebookApp.token="yourtoken" \
-        --NotebookApp.allow_origin=*
+        --NotebookApp.allow_origin=* \
+        --NotebookApp.notebook_dir=/workspace
 ```
 
 We can expose ngrok with:  
