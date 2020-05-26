@@ -14,11 +14,11 @@ ENV PATH="/root/miniconda/bin:${PATH}"
 RUN sed -e 's|PATH="\(.*\)"|PATH="/root/miniconda/bin:\1"|g' -i /etc/environment
 
 # Install Jupyter
-# RUN conda install -c conda-forge jupyterlab
+RUN conda install -c conda-forge jupyterlab
 
 # Install DLC
-# RUN git clone https://github.com/DeepLabCut/DeepLabCut.git
-# RUN conda env create -f ./DeepLabCut/conda-environments/DLC-GPU.yaml
-# RUN activate DLC-GPU
-# RUN python -m ipykernel install --user --name DLC-GPU --display-name "DLC-GPU"
+RUN git clone https://github.com/DeepLabCut/DeepLabCut.git
+RUN conda env create -f ./DeepLabCut/conda-environments/DLC-GPU.yaml
+RUN activate DLC-GPU
+RUN python -m ipykernel install --user --name DLC-GPU --display-name "DLC-GPU"
 
