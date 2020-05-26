@@ -3,7 +3,7 @@ FROM tensorflow/tensorflow:latest-gpu
 # Install tools
 RUN apt-get update && \
     apt-get upgrade -y && \
-    apt-get install -y git wget
+    apt-get install -y git wget libgtk2.0-dev
 
 WORKDIR /temp
 
