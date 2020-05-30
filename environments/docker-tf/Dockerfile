@@ -23,4 +23,10 @@ RUN conda env create -f ./DeepLabCut/conda-environments/DLC-GPU.yaml
 RUN source activate DLC-GPU && python -m ipykernel install --user --name DLC-GPU --display-name "DLC-GPU"
 ENV DLClight=True 
 
+# Set shell
+RUN chsh -s /bin/bash
+
+# Install gsutil
+RUN pip install gsutil
+
 WORKDIR /storage
