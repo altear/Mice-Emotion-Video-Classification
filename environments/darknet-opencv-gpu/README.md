@@ -18,7 +18,7 @@ sudo docker run \
 Note that if you don't run `--gpus=all` with darknet it wont work
 
 ### Training
-1. Label data locally with yolo_mark
+1. Label data locally with yolo_mark (or setup [cvat](https://github.com/opencv/cvat))
 2. Move data folder to the training server
 3. Modify the yolo-obj.cfg according to darknet's guide (can be found in their github readme)
 4. Run this dockerfile, make sure to mount the volume that contains the training data

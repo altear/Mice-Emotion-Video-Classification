@@ -1,20 +1,46 @@
-# DLC-CPU Environment
-For using DeepLabCut's UI tools
+# Environments
+Here is a list of docker environments used in this project. More details can be found by navigating to their respective folders 
 
+## docker-tf
+This is the main environment 
+
+It's a GPU environment with 
+- jupyter 
+- deeplabcut
+- tensorflow 2.X
+
+## ffmpeg-gpu
+A ffmpeg environment that supports hardware acceleration
+
+This is really just `willprice/nvidia-ffmpeg` with a bash entrypoint
+
+## cvat
+cvat is an annotator/labeler tool that is hosted on the web
+
+Install instruction here: https://github.com/opencv/cvat/blob/develop/cvat/apps/documentation/installation.md
+
+
+# General
+
+## ngrok
+Ngrok is a very useful tool for tunnelling out of local networks
+
+If you have at least the lowest tier paid account, it can help you keep familiar domains on new webservers
+
+There's an `ngrok-config.yml.template` file in this folder. To use it, rename to `ngrok-config.yml` and set the values for authtoken and subdomains (which can be found by logging into ngrok's website). Then run using 
+Example: 
 ```
-conda env create -f DLC-CPU.yaml
+./ngrok start -config /path/to/ngrok-config.yml cvat jupyter
 ```
 
-Once installed, you can add the kernel to access it from Jupyter
+## Watching resources
 
+### CPU
 ```
-activate DLC-CPU
-python -m ipykernel install --user --name DLC-CPU --display-name "DLC-CPU"
+top
 ```
-**Note**: At the time of writing this, there was an issue with h5py (showed as a cython error). This was fixed by downgrading h5py using `pip install h5py==2.9` 
 
-# DLC-GPU Docker Environment
-
+### GPU
 ```
-sudo docker build -t mouse-emotion .
+watch -d -n 0.5 nvidia-smi
 ```

@@ -18,18 +18,19 @@ Assumes CUDA, cuDNN are already installed
 4. TF Docker Image: https://www.tensorflow.org/install/docker    
    Currently `docker pull tensorflow/tensorflow:latest-gpu-jupyter`
 
+**Note**: At the time of writing this, there was an issue with h5py (showed as a cython error). This was fixed by downgrading h5py using `pip install h5py==2.9` 
+
 ## Build
 ```
 sudo docker build -t mouse-emotion .
 ```
-
 
 ## Launching
 Use the following command. Make modifications to volume, notebookdir, and token depending on system.
 
 ```
 sudo docker run \
-    -v /storage:/workspace \
+    -v /storage:/storage \
     -it --gpus all \
     -p 8888:8888 \
     mouse-emotion \
@@ -37,11 +38,8 @@ sudo docker run \
         --ip 0.0.0.0 --port 8888 --no-browser --allow-root \
         --NotebookApp.token="yourtoken" \
         --NotebookApp.allow_origin=* \
-        --NotebookApp.notebook_dir=/workspace
+        --NotebookApp.notebook_dir=/storage
 ```
 
-We can expose ngrok with:  
-```
-./ngrok http -host-header="localhost:8888" 8888
-```
+
 

@@ -1,0 +1,10 @@
+authtoken: <your token>
+tunnels:
+    jupyter:
+      proto: http
+      addr: 8888
+      subdomain: <your subdomain 1>
+    cvat:
+      proto: http
+      addr: 8080
+      subdomain: <your subdomain 2>
