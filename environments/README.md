@@ -19,7 +19,6 @@ cvat is an annotator/labeler tool that is hosted on the web
 
 Install instruction here: https://github.com/opencv/cvat/blob/develop/cvat/apps/documentation/installation.md
 
-
 # General
 
 ## ngrok

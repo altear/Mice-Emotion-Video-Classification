@@ -29,6 +29,15 @@ Note that if you don't run `--gpus=all` with darknet it wont work
     ./darknet detector train data/obj.data yolo-obj.cfg yolov4.conv.137 -dont_show -mjpeg_port 8090
    ```
 
+### Demo
+```
+./darknet detector demo data/obj.data \
+    /storage/gs/rat-emotion/darknet/cfg/2020-06-02_yolo-obj.cfg \
+    backup/2020-06-02_yolo-obj_final.weights \
+    -dont_show \
+    /storage/gs/rat-emotion/videos/24fps/rat9-control1.mp4 \
+    -out_filename /storage/gs/rat-emotion/darknet/results/2020-06-04/demo/demo-rat9-control1.mp4
+```
 
 ## Resources
 Many of the steps for the OpenCV installation are described in greater detail in this article

@@ -41,5 +41,42 @@ sudo docker run \
         --NotebookApp.notebook_dir=/storage
 ```
 
+or 
 
+```
+sudo docker run \
+    -v /storage:/storage \
+    -it --gpus all \
+    -p 8888:8888 \
+    mouse-emotion \
+    bash
+```
 
+## Darknet Training
+
+Link backup and data directories
+```
+cd /darknet
+
+configpath=/storage/gs/rat-emotion/darknet/cfg/2020-06-02_yolo-obj.cfg
+basedir=/storage/gs/rat-emotion/darknet
+datadir=2020-06-02
+curdate=$(date +'%Y-%m-%d')
+
+rm -rf data
+ln -s ${basedir}/labeled_data/${datadir} data
+
+mv backup backup-pre-$(date +'%Y-%m-%d').bk
+mkdir -p ${basedir}/weights/$curdate
+ln -s ${basedir}/weights/$curdate backup
+
+wget https://github.com/AlexeyAB/darknet/releases/download/darknet_yolo_v3_optimal/yolov4.conv.137
+./darknet detector train \
+   data/obj.data \
+   $configpath \
+   yolov4.conv.137 \
+   -dont_show -mjpeg_port 8090
+```
+
+## Libraries
+- https://github.com/madhawav/YOLO3-4-Py
