@@ -1,14 +1,14 @@
 # Author: Andre Telfer
 # Contact: andretelfer@cmail.carleton.ca
 
-ARG CUDA_VERSION=10.2
+ARG CUDA_VERSION=9.2
 FROM nvidia/cuda:${CUDA_VERSION}-cudnn7-devel-ubuntu18.04
 
 # Note: you must find the arch for your gpu from https://developer.nvidia.com/cuda-gpus#compute
+ARG CUDA_VERSION
 ARG CUDA_ARCH_BIN=7.5
 ARG OPENCV_VERSION=3.4.10 
-ARG INSTALL_PATH=/opencv_install
-ARG CUDA_VERSION
+ARG OPENCV_INSTALL_PATH=/opencv_install
 
 ENTRYPOINT /bin/bash
 
@@ -29,7 +29,7 @@ RUN unzip opencv.zip && unzip opencv_contrib.zip
 RUN mv opencv-${OPENCV_VERSION} opencv && mv opencv_contrib-${OPENCV_VERSION} opencv_contrib
 
 # Build
-RUN mkdir ${INSTALL_PATH}
+RUN mkdir ${OPENCV_INSTALL_PATH}
 RUN mkdir /opencv/build 
 WORKDIR /opencv/build
 
@@ -37,7 +37,7 @@ WORKDIR /opencv/build
 # OpenCV 3.4 => https://github.com/opencv/opencv/blob/3.4/CMakeLists.txt
 RUN echo 'test'
 RUN cmake -D CMAKE_BUILD_TYPE=RELEASE \
-	-D CMAKE_INSTALL_PREFIX=${INSTALL_PATH} \
+	-D CMAKE_INSTALL_PREFIX=${OPENCV_INSTALL_PATH} \
 	-D INSTALL_PYTHON_EXAMPLES=ON \
 	-D INSTALL_C_EXAMPLES=OFF \
 	-D OPENCV_ENABLE_NONFREE=ON \
@@ -45,7 +45,7 @@ RUN cmake -D CMAKE_BUILD_TYPE=RELEASE \
 	-D WITH_CUDNN=ON \
 	-D OPENCV_DNN_CUDA=ON \
 	-D ENABLE_FAST_MATH=1 \
-    -D CUDA_TOOLKIT_ROOT_DIR=/usr/local/cuda-10.2 \
+    -D CUDA_TOOLKIT_ROOT_DIR=/usr/local/cuda-${CUDA_VERSION} \
 	-D CUDA_FAST_MATH=1 \
 	-D CUDA_ARCH_BIN=$CUDA_ARCH_BIN \
 	-D WITH_CUBLAS=1 \
@@ -55,7 +55,7 @@ RUN cmake -D CMAKE_BUILD_TYPE=RELEASE \
 
 RUN make -j8
 RUN make install
-ENV PKG_CONFIG_PATH "${INSTALL_PATH}/lib/pkgconfig:${PKG_CONFIG_PATH}"
+ENV PKG_CONFIG_PATH "${OPENCV_INSTALL_PATH}/lib/pkgconfig:${PKG_CONFIG_PATH}"
 RUN ldconfig
 
 # Darknet begins here
@@ -70,7 +70,7 @@ RUN sed -i 's/LIBSO=0/LIBSO=1/g' /darknet/Makefile
 WORKDIR /darknet
 RUN make -j8
 
-ENV LD_LIBRARY_PATH "${INSTALL_PATH}/lib:/usr/local/cuda-${CUDA_VERSION}/lib64/stubs:${PATH}"
+ENV LD_LIBRARY_PATH "${OPENCV_INSTALL_PATH}/lib:/usr/local/cuda-${CUDA_VERSION}/lib64/stubs:${PATH}"
 RUN ldconfig
 
 # Install ffmpeg
@@ -129,4 +129,5 @@ RUN apt-get install -y libglib2.0-0
 RUN rm /root/miniconda/envs/darknet/bin/../lib/libfontconfig.so.1
 
 SHELL ["/bin/bash", "-c"]
+ENTRYPOINT ["/bin/bash", "-c"]
 WORKDIR /storage

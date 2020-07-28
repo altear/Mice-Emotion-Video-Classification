@@ -8,9 +8,99 @@ project_path: C:\Users\Owner\Documents\repos\COMP4905\pose-estimation\MousePose-
 
 # Annotation data set configuration (and individual video cropping parameters)
 video_sets:
-  ./videos/Rat 2 LPS 1.MP4:
+  /workspace/videos/24fps/rat3-control3.mp4:
     crop: 0, 2704, 0, 1520
-  ./videos/Rat 4 Control 1.MP4:
+  /workspace/videos/24fps/rat7-control2.mp4:
+    crop: 0, 2704, 0, 1520
+  /workspace/videos/24fps/rat7-control1.mp4:
+    crop: 0, 2704, 0, 1520
+  /workspace/videos/24fps/rat5-lps1.mp4:
+    crop: 0, 2704, 0, 1520
+  /workspace/videos/24fps/rat3-control2.mp4:
+    crop: 0, 2704, 0, 1520
+  /workspace/videos/24fps/rat3-lps1.mp4:
+    crop: 0, 2704, 0, 1520
+  /workspace/videos/24fps/rat6-control4.mp4:
+    crop: 0, 2704, 0, 1520
+  /workspace/videos/24fps/rat4-control2.mp4:
+    crop: 0, 2704, 0, 1520
+  /workspace/videos/24fps/rat5-control2.mp4:
+    crop: 0, 2704, 0, 1520
+  /workspace/videos/24fps/rat6-control2.mp4:
+    crop: 0, 2704, 0, 1520
+  /workspace/videos/24fps/rat1-control1.mp4:
+    crop: 0, 2704, 0, 1520
+  /workspace/videos/24fps/rat8-control2.mp4:
+    crop: 0, 2704, 0, 1520
+  /workspace/videos/24fps/rat7-control4.mp4:
+    crop: 0, 2704, 0, 1520
+  /workspace/videos/24fps/rat4-lps1.mp4:
+    crop: 0, 2704, 0, 1520
+  /workspace/videos/24fps/rat5-lps2.mp4:
+    crop: 0, 2704, 0, 1520
+  /workspace/videos/24fps/rat2-control1.mp4:
+    crop: 0, 2704, 0, 1520
+  /workspace/videos/24fps/rat4-control1.mp4:
+    crop: 0, 2704, 0, 1520
+  /workspace/videos/24fps/rat5-control1.mp4:
+    crop: 0, 2704, 0, 1520
+  /workspace/videos/24fps/rat2-control4.mp4:
+    crop: 0, 2704, 0, 1520
+  /workspace/videos/24fps/rat6-control1.mp4:
+    crop: 0, 2704, 0, 1520
+  /workspace/videos/24fps/rat7-lps1.mp4:
+    crop: 0, 2704, 0, 1520
+  /workspace/videos/24fps/rat8-lps1.mp4:
+    crop: 0, 2704, 0, 1520
+  /workspace/videos/24fps/rat3-lps2.mp4:
+    crop: 0, 2704, 0, 1520
+  /workspace/videos/24fps/rat7-control3.mp4:
+    crop: 0, 2704, 0, 1520
+  /workspace/videos/24fps/rat6-control5.mp4:
+    crop: 0, 2704, 0, 1520
+  /workspace/videos/24fps/rat9-lps2.mp4:
+    crop: 0, 2704, 0, 1520
+  /workspace/videos/24fps/rat2-control3.mp4:
+    crop: 0, 2704, 0, 1520
+  /workspace/videos/24fps/rat9-lps1.mp4:
+    crop: 0, 2704, 0, 1520
+  /workspace/videos/24fps/rat2-lps2.mp4:
+    crop: 0, 2704, 0, 1520
+  /workspace/videos/24fps/rat1-control2.mp4:
+    crop: 0, 2704, 0, 1520
+  /workspace/videos/24fps/rat8-lps2.mp4:
+    crop: 0, 2704, 0, 1520
+  /workspace/videos/24fps/rat4-lps2.mp4:
+    crop: 0, 2704, 0, 1520
+  /workspace/videos/24fps/rat2-lps3.mp4:
+    crop: 0, 2704, 0, 1520
+  /workspace/videos/24fps/rat6-control3.mp4:
+    crop: 0, 2704, 0, 1520
+  /workspace/videos/24fps/rat8-control1.mp4:
+    crop: 0, 2704, 0, 1520
+  /workspace/videos/24fps/rat2-lps4.mp4:
+    crop: 0, 2704, 0, 1520
+  /workspace/videos/24fps/rat7-lps2.mp4:
+    crop: 0, 2704, 0, 1520
+  /workspace/videos/24fps/rat1-control3.mp4:
+    crop: 0, 2704, 0, 1520
+  /workspace/videos/24fps/rat9-control1.mp4:
+    crop: 0, 2704, 0, 1520
+  /workspace/videos/24fps/rat6-lps2.mp4:
+    crop: 0, 2704, 0, 1520
+  /workspace/videos/24fps/rat3-control1.mp4:
+    crop: 0, 2704, 0, 1520
+  /workspace/videos/24fps/rat2-lps1.mp4:
+    crop: 0, 2704, 0, 1520
+  /workspace/videos/24fps/rat3-control4.mp4:
+    crop: 0, 2704, 0, 1520
+  /workspace/videos/24fps/rat9-control2.mp4:
+    crop: 0, 2704, 0, 1520
+  /workspace/videos/24fps/rat6-lps1.mp4:
+    crop: 0, 2704, 0, 1520
+  /workspace/videos/24fps/rat2-control2.mp4:
+    crop: 0, 2704, 0, 1520
+  /workspace/videos/24fps/rat1-control4.mp4:
     crop: 0, 2704, 0, 1520
 bodyparts:
 - left_ear

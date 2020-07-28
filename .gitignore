@@ -2,4 +2,7 @@
 .ipynb_checkpoints/
 videos/
 *.mp4
+*.png
+*.jpg
 local/
+core
