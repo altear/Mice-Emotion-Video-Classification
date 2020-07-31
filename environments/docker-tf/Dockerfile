@@ -87,7 +87,12 @@ RUN sed -e 's|PATH="\(.*\)"|PATH="/root/miniconda/bin:\1"|g' -i /etc/environment
 ENV PATH="/root/miniconda/bin:${PATH}"
 
 # Install Jupyter
-RUN conda install -c conda-forge jupyterlab
+RUN conda install -y -c conda-forge jupyterlab
+
+# Install widgets for jupyter
+RUN conda install -y -c conda-forge ipywidgets
+RUN conda install -y -c conda-forge nodejs
+RUN jupyter labextension install @jupyter-widgets/jupyterlab-manager
 
 # Install DLC
 RUN git clone https://github.com/DeepLabCut/DeepLabCut.git

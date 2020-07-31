@@ -31,6 +31,7 @@ Use the following command. Make modifications to volume, notebookdir, and token 
 ```
 sudo docker run \
     -v /storage:/storage \
+    -v /var/log/docker/mouse-emotion:/var/log/ \
     -it --gpus all \
     -p 8888:8888 \
     mouse-emotion \
@@ -46,6 +47,7 @@ or
 ```
 sudo docker run \
     -v /storage:/storage \
+    -v /var/log/docker/mouse-emotion:/var/log \
     -it --gpus all \
     -p 8888:8888 \
     mouse-emotion \
